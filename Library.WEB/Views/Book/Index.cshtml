@@ -1,0 +1,22 @@
+﻿
+@if (User.IsInRole(Library.ViewModels.Enums.Role.user.ToString()))
+{
+    <script src="~/Scripts/App/book/user-index.js"></script>
+}
+@if (User.IsInRole(Library.ViewModels.Enums.Role.admin.ToString()))
+{
+    <script src="~/Scripts/App/book/index.js"></script>
+}
+
+@{
+    ViewBag.Title = "Books";
+}
+
+<div style="width:auto;">
+    <br />
+    <h2>Books</h2>
+    <br />
+    <div id="books-grid"></div>
+</div>
+
+<link href="~/Content/Grid.css" rel="stylesheet" />

@@ -1,0 +1,10 @@
+﻿
+@if (User.IsInRole(Library.ViewModels.Enums.Role.user.ToString()))
+{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (User.IsInRole(Library.ViewModels.Enums.Role.admin.ToString()))
+{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+

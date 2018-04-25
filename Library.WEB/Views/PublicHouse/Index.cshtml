@@ -1,0 +1,21 @@
+﻿
+@if (User.IsInRole(Library.ViewModels.Enums.Role.user.ToString()))
+{
+    <script src="~/Scripts/App/PublicHouse/index-user.js"></script>
+}
+@if (User.IsInRole(Library.ViewModels.Enums.Role.admin.ToString()))
+{
+    <script src="~/Scripts/App/PublicHouse/index.js"></script>
+}
+
+@{
+    ViewBag.Title = "Publication Houses";
+}
+
+<div style="width:auto;">
+    <br />
+    <h2>Publication Houses</h2>
+    <br />
+    <div id="publichouses-grid"></div>
+</div>
+<link href="~/Content/Grid.css" rel="stylesheet" />

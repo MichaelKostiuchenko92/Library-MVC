@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script src="~/Scripts/jquery-3.0.0.js"></script>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.material.mobile.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2017.3.1026/js/kendo.all.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Library</a>
+
+        <ul class="navbar-nav navbar navbar-expand">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="btn btn-primary">Hello! @User.Identity.Name</li>
+                <li>@Html.ActionLink("LogOut", "LogOut", "Account", null, new { @class = "nav-link", data_icon = "gear" })</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Registration", "Register", "Account", null, new { @class = "nav-link", data_icon = "gear" })</li>
+                <li>@Html.ActionLink("LogIn", "LogIn", "Account", null, new { @class = "nav-link", data_icon = "gear" })</li>
+            }
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            @Html.ActionLink("Books", "Index", "Book", null, new { @class = "nav-link", data_icon = "gear" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Magazines", "Index", "Magazine", null, new { @class = "nav-link", data_icon = "gear" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Brochures", "Index", "Brochure", null, new { @class = "nav-link", data_icon = "gear" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Publications", "Index", "Library", null, new { @class = "nav-link", data_icon = "gear" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Publication Houses", "Index", "PublicHouse", null, new { @class = "nav-link", data_icon = "gear" })
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                <br />
+                @RenderBody()
+                <hr />
+            </main>
+        </div>
+    </div>
+    <script src="~/Scripts/kendo.all.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

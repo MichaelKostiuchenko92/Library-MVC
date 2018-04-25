@@ -1,0 +1,32 @@
+﻿
+@model Library.ViewModels.Models.MagazineViewModel
+
+@{
+    ViewBag.Title = "Add magazine";
+}
+
+<h2>Add magazine</h2>
+
+@using (Html.BeginForm("Create", "Magazine", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+    @Html.LabelFor(model => model.Name, "Magazine Name")
+    <br />
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Name)
+    <br /><br />
+    @Html.LabelFor(model => model.AuthorName, "Author")
+    <br />
+    @Html.EditorFor(model => model.AuthorName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.AuthorName)
+    <br /><br />
+    @Html.LabelFor(model => model.YearOfPublishing, "Year")
+    <br />
+    @Html.EditorFor(model => model.YearOfPublishing, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.YearOfPublishing)
+    <br /><br />
+
+    <input type="submit" value="Add magazine" class="btn btn-secondary" />
+}
+

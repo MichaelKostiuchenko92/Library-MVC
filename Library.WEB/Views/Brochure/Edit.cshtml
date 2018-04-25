@@ -1,0 +1,38 @@
+﻿
+@model Library.ViewModels.Models.BrochureViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Brochure № @Model.BrochureId</h2>
+@using (Html.BeginForm("Edit", "Brochure", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @Html.HiddenFor(m => m.BrochureId)
+        <p>
+            @Html.LabelFor(m => m.Name, "Brochure")
+            <br />
+            @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.TypeOfCover, "Cover")
+            <br />
+            @Html.EditorFor(m => m.TypeOfCover, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TypeOfCover)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.NumberOfPages, "Pages")
+            <br />
+            @Html.EditorFor(m => m.NumberOfPages, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NumberOfPages)
+        </p>
+
+        <p><input type="submit" value="Save" class="btn btn-secondary" /></p>
+    </fieldset>
+}
+

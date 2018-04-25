@@ -1,0 +1,28 @@
+﻿
+@model Library.ViewModels.Models.PublicHouseViewModel
+
+@{
+    ViewBag.Title = "Add publication house";
+}
+
+<h2>Add publication house</h2>
+
+@using (Html.BeginForm("Create", "PublicHouse", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+
+    @Html.LabelFor(model => model.PublicHouseName, "Name")
+    <br />
+    @Html.EditorFor(model => model.PublicHouseName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.PublicHouseName)
+    <br /><br />
+    @Html.LabelFor(model => model.Country, "Country")
+    <br />
+    @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Country)
+    <br /><br />
+
+    <input type="submit" value="Add publication house" class="btn btn-secondary" />
+}
+

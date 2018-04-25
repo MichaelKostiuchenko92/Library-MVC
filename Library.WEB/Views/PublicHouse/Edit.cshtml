@@ -1,0 +1,32 @@
+﻿
+@model Library.ViewModels.Models.PublicHouseViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Magazine № @Model.PublicHouseId</h2>
+@using (Html.BeginForm("Edit", "PublicHouse", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @Html.HiddenFor(m => m.PublicHouseId)
+
+        <p>
+            @Html.LabelFor(m => m.PublicHouseName, "Name")
+            <br />
+            @Html.EditorFor(m => m.PublicHouseName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PublicHouseName)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Country, "Country")
+            <br />
+            @Html.EditorFor(m => m.Country, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Country)
+        </p>
+
+        <p><input type="submit" value="Save" class="btn btn-secondary" /></p>
+    </fieldset>
+}

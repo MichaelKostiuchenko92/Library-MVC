@@ -1,0 +1,38 @@
+﻿
+@model Library.ViewModels.Models.MagazineViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<h2>Magazine № @Model.MagazineId</h2>
+@using (Html.BeginForm("Edit", "Magazine", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @Html.HiddenFor(m => m.MagazineId)
+        <p>
+            @Html.LabelFor(m => m.Name, "Magazine")
+            <br />
+            @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.AuthorName, "Author")
+            <br />
+            @Html.EditorFor(m => m.AuthorName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AuthorName)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.YearOfPublishing, "Year")
+            <br />
+            @Html.EditorFor(m => m.YearOfPublishing, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.YearOfPublishing)
+        </p>
+
+        <p><input type="submit" value="Save" class="btn btn-secondary" /></p>
+    </fieldset>
+}

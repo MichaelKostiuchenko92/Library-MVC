@@ -1,0 +1,40 @@
+﻿<header class="masthead">
+    <h3 class="text-muted">Library</h3>
+    <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav text-md-center nav-justified w-100">
+                <li class="nav-item active">
+                    @Html.ActionLink("Books", "Index", "Book", null, new { @class = "nav-link", data_icon = "gear" }) 
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Magazines", "Index", "Magazine", null, new { @class = "nav-link", data_icon = "gear" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Brochures", "Index", "Brochure", null, new { @class = "nav-link", data_icon = "gear" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Publications", "Index", "Library", null, new { @class = "nav-link", data_icon = "gear" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Publication Houses", "Index", "PublicHouse", null, new { @class = "nav-link", data_icon = "gear" })
+                </li>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="btn btn-primary">Hello! @User.Identity.Name</li>
+                    <li>@Html.ActionLink("LogOut", "LogOut", "Account", null, new { @class = "nav-link", data_icon = "gear" })</li>
+                }
+
+                else
+                {
+                    <li>@Html.ActionLink("Registration", "Register", "Account", null, new { @class = "nav-link", data_icon = "gear" })</li>
+                    <li>@Html.ActionLink("LogIn", "LogIn", "Account", null, new { @class = "nav-link", data_icon = "gear" })</li>
+                }
+
+            </ul>
+        </div>
+    </nav>
+</header>

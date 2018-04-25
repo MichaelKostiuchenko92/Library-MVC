@@ -1,0 +1,32 @@
+﻿
+@model Library.ViewModels.Models.BrochureViewModel
+
+@{
+    ViewBag.Title = "Add brochure";
+}
+
+<h2>Add brochure</h2>
+
+@using (Html.BeginForm("Create", "Brochure", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+    @Html.LabelFor(model => model.Name, "Brochure Name")
+    <br />
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Name)
+    <br /><br />
+    @Html.LabelFor(model => model.TypeOfCover, "Cover")
+    <br />
+    @Html.EditorFor(model => model.TypeOfCover, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.TypeOfCover)
+    <br /><br />
+    @Html.LabelFor(model => model.NumberOfPages, "Pages")
+    <br />
+    @Html.EditorFor(model => model.NumberOfPages, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.NumberOfPages)
+    <br /><br />
+
+    <input type="submit" value="Add brochure" class="btn btn-secondary" />
+}
+

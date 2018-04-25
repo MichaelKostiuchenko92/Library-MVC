@@ -1,0 +1,46 @@
+﻿
+@model Library.ViewModels.Models.BookViewModel
+
+
+@{
+    ViewBag.Title = "Add book";
+}
+
+<h2>Add Book</h2>
+
+@using (Html.BeginForm("Create", "Book", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        @Html.ValidationSummary(true)
+
+        @Html.LabelFor(model => model.Name, "Book Name", new { @class = "control-label" })
+        <br />
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Name)
+        <br /><br />
+        @Html.LabelFor(model => model.AuthorName, "Author", new { @class = "control-label" })
+        <br />
+        @Html.EditorFor(model => model.AuthorName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.AuthorName)
+        <br /><br />
+        @Html.LabelFor(model => model.YearOfPublishing, "Year", new { @class = "control-label" })
+        <br />
+        @Html.EditorFor(model => model.YearOfPublishing, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.YearOfPublishing)
+        <br /><br />
+
+        @Html.Label("Publication Houses", new { @class = "control-label" })
+
+        <select name="PubHouses" id="multiselect" style="width:200px"></select>
+        <script src="~/Scripts/app/book/multiselectCreate.js"></script>
+        <br /><br />
+
+        <input id="bnt-save" type="submit" value="Add Book" class="btn btn-secondary" />
+    </div>
+}
+
+
+
+
+
+

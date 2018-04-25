@@ -1,0 +1,30 @@
+﻿
+@model Library.ViewModels.Models.BookViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Book № @Model.BookId</h2>
+<dl>
+    <dt>Book Name</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+    <dt>Author</dt>
+    <dd>
+        @Html.DisplayFor(model => model.AuthorName)
+    </dd>
+    <dt>Year</dt>
+    <dd>
+        @Html.DisplayFor(model => model.YearOfPublishing)
+    </dd>
+    <dt>Publication Houses</dt>
+    <dd>
+        @foreach (var item in Model.PublicHouses)
+        {
+        <li>@item.PublicHouseName</li>
+        }
+    </dd>
+</dl>
+

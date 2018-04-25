@@ -1,0 +1,22 @@
+﻿
+
+@if (User.IsInRole(Library.ViewModels.Enums.Role.user.ToString()))
+{
+    <script src="~/Scripts/app/Magazine/user-index.js"></script>
+}
+@if (User.IsInRole(Library.ViewModels.Enums.Role.admin.ToString()))
+{
+    <script src="~/Scripts/app/Magazine/indext.js"></script>
+}
+
+@{
+    ViewBag.Title = "Magazines";
+}
+
+<div style="width:auto;">
+    <br />
+    <h2>Magazines</h2>
+    <br />
+    <div id="magazines-grid"></div>
+</div>
+<link href="~/Content/Grid.css" rel="stylesheet" />
